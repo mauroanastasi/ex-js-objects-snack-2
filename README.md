@@ -72,6 +72,19 @@ const hamburger = {
 const secondBurger = structuredClone(hamburger);
 const thirdBurger = structuredClone(hamburger);
 Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
+
+SOLUZIONE
+
+1. Abbiamo trè oggetti in memoria:
+
+-hamburger
+
+-secondBurgher (creato col metodo structuredClone() che effettua una copia profonda sull'oggetto copiato, copiando anche gli oggetti annidati e complessi, crea un clone strutturato )
+
+-thirtBurger (creato col metodo structuredClone() che effettua una copia profonda sull'oggetto copiato, copiando anche gli oggetti annidati e complessi, crea un clone strutturato )
+
+----------------------------------------------------------------------------------------------------------
+
 🏆 Code Question 4
 const chef = {
     name: "Chef Hyur",
