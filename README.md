@@ -11,6 +11,16 @@ console.log(hamburger.name); // ?
 console.log(secondBurger.name ); // ?
 Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
 Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
+
+SOLUZIONE:
+
+1.console.log(hamburger.name);  { name: "Double Cheese Burger", weight: 500 };
+console.log(secondBurger.name );  { name: "Double Cheese Burger", weight: 500 };
+Verrà stampato in console lo stesso oggetto, le modifiche apportate con secondBurger.name e secondBurger.weight sono visibili sia per hamburger che per secondBurger, in quanto la copia di secondBurger su hamburger è avvenuta per Reference type (non si crea un nuovo oggetto, ma un riferimento allo stesso oggetto, creato in memoria inizialmente da hamburger)
+
+2.E' stato creato in memoria un solo oggetto, nel momento in cui ho inizializzato e dichiarato hamburger vado a creare in memoria il suddetto oggetto con il suo riferimento a hamburger, nel momento in cui vado a effettuare una reference copy di hamburger su secondBurger, sto salvando in secondBurger un nuovo riferimento allo stesso oggetto in memoria 
+
+----------------------------------------------------------------------------------------------------------
 🏆 Code Question 2
 const hamburger = { 
     name: "Cheese Burger", 
