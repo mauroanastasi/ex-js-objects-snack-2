@@ -14,13 +14,14 @@ Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codic
 
 SOLUZIONE:
 
-1.console.log(hamburger.name);  { name: "Double Cheese Burger", weight: 500 };
+1. console.log(hamburger.name);  { name: "Double Cheese Burger", weight: 500 };
 console.log(secondBurger.name );  { name: "Double Cheese Burger", weight: 500 };
 Verrà stampato in console lo stesso oggetto, le modifiche apportate con secondBurger.name e secondBurger.weight sono visibili sia per hamburger che per secondBurger, in quanto la copia di secondBurger su hamburger è avvenuta per Reference type (non si crea un nuovo oggetto, ma un riferimento allo stesso oggetto, creato in memoria inizialmente da hamburger)
 
-2.E' stato creato in memoria un solo oggetto, nel momento in cui ho inizializzato e dichiarato hamburger vado a creare in memoria il suddetto oggetto con il suo riferimento a hamburger, nel momento in cui vado a effettuare una reference copy di hamburger su secondBurger, sto salvando in secondBurger un nuovo riferimento allo stesso oggetto in memoria 
+2. E' stato creato in memoria un solo oggetto, nel momento in cui ho inizializzato e dichiarato hamburger vado a creare in memoria il suddetto oggetto con il suo riferimento a hamburger, nel momento in cui vado a effettuare una reference copy di hamburger su secondBurger, sto salvando in secondBurger un nuovo riferimento allo stesso oggetto in memoria 
 
 ----------------------------------------------------------------------------------------------------------
+
 🏆 Code Question 2
 const hamburger = { 
     name: "Cheese Burger", 
@@ -36,6 +37,23 @@ console.log(secondBurger.ingredients[0]); // ?
 P.S.: Ricordati che gli Array, come gli oggetti, sono dei Reference Type (Tipi di Riferimento)!
 Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
 Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
+
+SOLUZIONE:
+
+1. console.log(hamburger.ingredients[0]);
+ 
+ "Salad"
+
+console.log(secondBurger.ingredients[0]); 
+ 
+ "Salad"
+
+In questo modo avviene una shallow copy ossia una copia superficiale, copia tutto l'ggetto hamburger ma per i suoi oggetti annidati fa una copia per riferimento (reference copy)
+In questa maniera, se andiamo a modificare un ingrediente (che è una proprietà annidata dell'oggetto hamburger) verrà modificata sia in hamburger che in secondBurger in quando la copira di ingredients è avvenuta per riferimento ( potevamo ovviare a questo problema scrivendo così const secondBurger = {...hamburger, ingredients: {...hamburger.ingredients}}; in questa maniera hamburger è un nuovo oggetto che avrà a sua volta come proprietà un nuovo oggetto per ingredients )
+
+2. Sono stati creati due oggetti in memoria usando il metodo shallow copy con lo spread operator (copia di primo livello), i due oggetti avranno all'interno la propietà ingredients che è un oggetto annidato, questa proprietà è stata copiata per riferimento ossia non è stata creata una nuova copia per questa, qualsiasi modifica toccherà entrambi gli oggetti (hamburger e secondBurger)
+
+----------------------------------------------------------------------------------------------------------
 🏆 Code Question 3
 const hamburger = { 
     name: "Cheese Burger", 
